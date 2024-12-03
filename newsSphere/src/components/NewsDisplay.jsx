@@ -6,9 +6,9 @@ import NewsFragment from "./NewsFragment";
 import { useNavigate } from "react-router-dom";
 
 const NewsDisplay = () => {
-  const { categories, news, setCurrentArticle, error } = useContext(NewsContext);
+  const { categories, news, setCurrentArticle} = useContext(NewsContext);
   const navigate = useNavigate();
-console.log( 'news error', error);
+
   const [
     business,
     entertainment,

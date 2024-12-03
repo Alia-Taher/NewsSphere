@@ -5,11 +5,11 @@ import { useParams } from "react-router-dom";
 const NewsByCategory = () => {
   const { categoryName } = useParams();
 
-  console.log("useParams categoryName:", categoryName);
+  
 
   const { byCategory, getNewsByCategory, loading, error} =
     useContext(NewsContext);
-   console.log(error, 'this is the error')
+   
 
   useEffect(() => {
     if (!byCategory[categoryName]) {
