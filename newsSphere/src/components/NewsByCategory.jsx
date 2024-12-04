@@ -5,11 +5,8 @@ import { useParams } from "react-router-dom";
 const NewsByCategory = () => {
   const { categoryName } = useParams();
 
-  
-
-  const { byCategory, getNewsByCategory, loading, error} =
+  const { byCategory, getNewsByCategory, loading, error } =
     useContext(NewsContext);
-   
 
   useEffect(() => {
     if (!byCategory[categoryName]) {
@@ -69,46 +66,3 @@ const NewsByCategory = () => {
   );
 };
 export default NewsByCategory;
-
-// import { useParams } from 'react-router-dom';
-// import { useContext, useEffect, useMemo } from 'react';
-// import { NewsContext } from '../context/NewsContext';
-
-// const NewsByCategory = () => {
-//   const { categoryName } = useParams();
-//   const { byCategory, getNewsByCategory } = useContext(NewsContext);
-
-//   // Memoize the logging to prevent re-logging on every render
-//   const memoizedCategoryName = useMemo(() => {
-//     console.log('useParams categoryName:', categoryName);
-//     return categoryName;
-//   }, [categoryName]);
-
-//   // Use useEffect to fetch news only when category changes
-//   useEffect(() => {
-//     // Check if news for this category is not already loaded
-//     if (!byCategory[memoizedCategoryName]) {
-//       getNewsByCategory(memoizedCategoryName);
-//     }
-//   }, [memoizedCategoryName, byCategory, getNewsByCategory]);
-
-//   // Memoize the news list
-//   const categoryNews = useMemo(() => {
-//     return byCategory[memoizedCategoryName] || [];
-//   }, [byCategory, memoizedCategoryName]);
-
-//   // Render logic
-//   return (
-//     <div>
-//       <h1>{memoizedCategoryName.charAt(0).toUpperCase() + memoizedCategoryName.slice(1)} News</h1>
-//       {categoryNews.map((news, index) => (
-//         <div key={index}>
-//           {/* Render news items */}
-//           <h2>{news.title}</h2>
-//         </div>
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default NewsByCategory;

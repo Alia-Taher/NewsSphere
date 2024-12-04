@@ -1,7 +1,24 @@
 import PropTypes from "prop-types";
 
 export const ArticleDisplay = ({ article }) => {
-  const { title, urlToImage, author, description, content, url } = article;
+  const {
+    title,
+    urlToImage,
+    author,
+    description,
+    content,
+    url,
+    loading,
+    error,
+  } = article;
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>There was an error. Please try again later</div>;
+  }
 
   return (
     <div>
@@ -31,5 +48,7 @@ ArticleDisplay.propTypes = {
     content: PropTypes.string,
     url: PropTypes.string,
     description: PropTypes.string,
+    loading: PropTypes.bool,
+    error: PropTypes.bool,
   }).isRequired,
 };

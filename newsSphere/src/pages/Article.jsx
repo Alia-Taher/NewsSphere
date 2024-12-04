@@ -3,13 +3,13 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { ArticleDisplay } from "../components/ArticleDisplay";
 import { NewsContext } from "../context/NewsContext";
-import { useLocation } from "react-router-dom";
+
 
 const Article = () => {
-  const { state } = useLocation();
+  
   const { currentArticle } = useContext(NewsContext);
 
-  const article = state?.article || currentArticle;
+  const article = currentArticle;
 
   if (!article) {
     return <div>No article found.</div>;
